@@ -11,7 +11,7 @@
 <body>
 	<i>We Are running on <%= application.getServerInfo() %></i><br>
 	 <c:forEach begin="0" end="10" varStatus="loop]">
-		<i class="funny">HelloWorld!, time is  <%= new Date() %></i>
+		<i class="funny">HelloWorld!, time is  <%= new Date() %></i><br >
 		
 	</c:forEach>
 </body>
