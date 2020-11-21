@@ -17,7 +17,7 @@ CREATE TABLE `users` (
   `email` varchar(45) DEFAULT NULL,
   `phone_number` bigint(12) DEFAULT NULL,
   `photo_name` varchar(120) DEFAULT NULL,
-  `create_time` datetime not null DEFAULT CURRENT_TIMESTAMP,
+  `create_time` timestamp not null DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -57,7 +57,7 @@ CREATE TABLE `courses` (
   `syllabus` mediumtext default NULL,
   `duration` int(11) default NULL,
   `instructor_username` varchar(50) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   primary key(`id`),
   CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`instructor_username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

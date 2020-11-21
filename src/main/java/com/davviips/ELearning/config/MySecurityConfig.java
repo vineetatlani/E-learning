@@ -21,6 +21,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().anyRequest().permitAll();
 		
 	}*/
+	
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
