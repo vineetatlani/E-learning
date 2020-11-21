@@ -54,7 +54,7 @@ CREATE TABLE `courses` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `price` int(11) default NULL,
-  `syllabus` varchar(50) default NULL,
+  `syllabus` mediumtext default NULL,
   `duration` int(11) default NULL,
   `instructor_username` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
