@@ -1,11 +1,16 @@
 package com.davviips.ELearning.Entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "users")
@@ -33,8 +38,11 @@ public class User {
 	@Column(name = "photo_name")
 	private String photoName;
 	
-	@Column(name = "created_time")
+	@Column(name = "create_time")
 	private Timestamp createdTime;
+	
+	@OneToMany( mappedBy = "instructorUserName", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	private List<Course> courses;
 	
 	public User() {
 		
