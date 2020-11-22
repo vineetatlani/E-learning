@@ -11,18 +11,6 @@
 </head>
 <body>
 	<h1>All Courses</h1>
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Price</th>
-		</tr>
-		<c:forEach var="course" items="${courses}">
-			<tr>
-				<td>${course.name }</td>
-				<td>${course.price }</td>
-			</tr>	
-		
-		</c:forEach>
-	</table>
+	
 </body>
 </html>

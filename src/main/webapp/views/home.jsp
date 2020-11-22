@@ -12,5 +12,6 @@
 	<i>We Are running on <%= application.getServerInfo() %></i><br>
 	 <hr>
 	 <a href="course/list">List All Courses</a>
+	 <a href="user/register">Register User</a>
 </body>
 </html>

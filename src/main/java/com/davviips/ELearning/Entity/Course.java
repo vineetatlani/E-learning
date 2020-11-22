@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.davviips.ELearning.helper.Syllabus;
 
 @Entity
 @Table(name = "courses")
@@ -29,8 +32,11 @@ public class Course {
 	private Integer price;
 	
 	@Column(name = "syllabus")
-	private String syllabys;
-	
+	private String jsonSyllabus;
+
+	@Transient
+	private Syllabus syllabus;
+
 	@Column(name = "duration")
 	private Integer duration;
 	
@@ -48,17 +54,17 @@ public class Course {
 		
 	}
 	
-	
-	public Course(String name, Integer price, String syllabys, Integer duration, Date createdAt,
-			User instructorUserName) {
+
+	public Course(Integer id, String name, Integer price, Integer duration, Date createdAt, User instructorUserName) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.syllabys = syllabys;
 		this.duration = duration;
 		this.createdAt = createdAt;
 		this.instructorUserName = instructorUserName;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -84,12 +90,23 @@ public class Course {
 		this.price = price;
 	}
 
-	public String getSyllabys() {
-		return syllabys;
+	public String getJsonSyllabus() {
+		return jsonSyllabus;
 	}
 
-	public void setSyllabys(String syllabys) {
-		this.syllabys = syllabys;
+
+	public void setJsonSyllabus(String jsonSyllabus) {
+		
+		this.jsonSyllabus = jsonSyllabus;
+	}
+	
+	public Syllabus getSyllabus() {
+		return syllabus;
+	}
+
+
+	public void setSyllabus(Syllabus syllabus) {
+		this.syllabus = syllabus;
 	}
 
 	public Integer getDuration() {
@@ -119,10 +136,10 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + ", price=" + price + ", syllabys=" + syllabys + ", duration="
-				+ duration + ", createdAt=" + createdAt + ", instructorUserName=" + instructorUserName + "]";
+		return "Course [id=" + id + ", name=" + name + ", price=" + price + ", jsonSyllabus=" + jsonSyllabus
+				+ ", syllabus=" + syllabus + ", duration=" + duration + ", createdAt=" + createdAt
+				+ ", instructorUserName=" + instructorUserName + "]";
 	}
-	
-	
+		
 	
 }

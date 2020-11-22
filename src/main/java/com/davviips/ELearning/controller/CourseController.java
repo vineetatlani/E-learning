@@ -18,6 +18,7 @@ import com.davviips.ELearning.Entity.Course;
 import com.davviips.ELearning.Entity.User;
 import com.davviips.ELearning.dao.CourseDao;
 import com.davviips.ELearning.dao.UserDao;
+import com.davviips.ELearning.helper.Syllabus;
 
 @Controller
 @RequestMapping("/course")
