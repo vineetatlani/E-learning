@@ -17,10 +17,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootApplication
 public class ELearningApplication {
 	
-	/*@Bean
+	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	}*/
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ELearningApplication.class, args);

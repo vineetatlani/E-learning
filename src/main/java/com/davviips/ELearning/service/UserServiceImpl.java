@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private RoleDao roleDao;
 	
-	//@Autowired
-	//private PasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	@Transactional
@@ -49,8 +49,8 @@ public class UserServiceImpl implements UserService {
 		user.setFirstName(crmUser.getFirstName());
 		user.setLastName(crmUser.getLastName());
 		user.setPhoneNumber(crmUser.getPhoneNumber());
-		user.setPassword("{noop}" + crmUser.getPassword());
-		//user.setPassword("{bcrypt}"+passwordEncoder.encode(crmUser.getPassword()));
+		//user.setPassword("{noop}" + crmUser.getPassword());
+		user.setPassword(passwordEncoder.encode(crmUser.getPassword()));
 		
 		Role role = new Role(user, "ROLE_STUDENT");
 		

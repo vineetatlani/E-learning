@@ -23,8 +23,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users`(username, password, enabled, first_name, last_name, email, phone_number)
 VALUES 
-('vineet','{noop}test',1,'vineet', 'atlani', 'vineetatlani7@gmail.com',9617685500),
-('tanya','{noop}test',1,'tanya', 'ramchandani', 'ramchandanitanya@gmail.com',9926471715);
+('vineet','$2a$10$0dpa1TZD0OaLJQnxy4OfEetTkRGbI1vZDkPmcrr8ZIDMbHf2BoFgu',1,'vineet', 'atlani', 'vineetatlani7@gmail.com',9617685500),
+('tanya','$2a$10$0dpa1TZD0OaLJQnxy4OfEetTkRGbI1vZDkPmcrr8ZIDMbHf2BoFgu',1,'tanya', 'ramchandani', 'ramchandanitanya@gmail.com',9926471715);
 
 DROP TABLE IF EXISTS `authorities`;
 CREATE TABLE `authorities` (
