@@ -2,6 +2,9 @@ package com.davviips.ELearning;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,6 +16,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
 public class ELearningApplication {
+	
+	/*@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(ELearningApplication.class, args);
@@ -26,13 +34,13 @@ public class ELearningApplication {
 		sections.put("History of C++", Arrays.asList(new String[] {"Language C","How was C++ build"}));
 		sections.put("OOPS Concept", Arrays.asList(new String[] {"Polymorphism", "Inheritance", "Abstraction","Encapsulation"}));
 		
-		sy.setSections(sections);
+		syllabus.setSections(sections);
 		
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
-			String jsonSyllabus = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(syllabus);
+			String jsonSyllabus = mapper.writeValueAsString(syllabus);
 			System.out.println(jsonSyllabus);
 			
 			Syllabus jsonSy = mapper.readValue(jsonSyllabus, Syllabus.class);

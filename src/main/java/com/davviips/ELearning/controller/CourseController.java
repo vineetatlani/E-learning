@@ -19,6 +19,7 @@ import com.davviips.ELearning.Entity.User;
 import com.davviips.ELearning.dao.CourseDao;
 import com.davviips.ELearning.dao.UserDao;
 import com.davviips.ELearning.helper.Syllabus;
+import com.davviips.ELearning.service.UserService;
 
 @Controller
 @RequestMapping("/course")
@@ -28,13 +29,19 @@ public class CourseController {
 	private CourseDao courseDao;
 	
 	@Autowired
-	private UserDao userDao;
+	private UserService userService;
 	
 	
 	@GetMapping("/list")
 	public String listCourses(Principal principal,  Model model) {
 		
 		List<Course> courses = courseDao.getCourses();
+		System.out.println(courses);
+		if(courses.size() != 0)
+		{
+			System.out.println(courses);
+			System.out.println(courses.get(0).getInstructorUserName());
+		}
 		
 		model.addAttribute("courses", courses);
 		

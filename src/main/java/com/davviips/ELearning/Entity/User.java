@@ -44,6 +44,9 @@ public class User {
 	@OneToMany( mappedBy = "instructorUserName", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	private List<Course> courses;
 	
+	@OneToMany(mappedBy = "user")
+	private List<Role> roles;
+	
 	public User() {
 		
 	}
@@ -62,6 +65,22 @@ public class User {
 	}
 
 
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	public String getUsername() {
 		return username;

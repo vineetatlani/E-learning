@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.davviips.ELearning.Entity.User;
+import com.davviips.ELearning.helper.CrmUser;
 
 @Repository
 public class UserDaoimpl implements UserDao {
@@ -16,12 +17,19 @@ public class UserDaoimpl implements UserDao {
 	private EntityManager entityManager;
 	
 	@Override
-	@Transactional
 	public User getUser(String username) {
 		
 		Session session = entityManager.unwrap(Session.class);
 		
 		return session.get(User.class, username);
+	}
+
+	@Override
+	public void save(User user) {
+		Session session = entityManager.unwrap(Session.class);
+		
+		session.save(user);
+		
 	}
 
 }

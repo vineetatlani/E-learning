@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(80) NOT NULL,
-  `enabled` tinyint(1) NOT NULL,
+  `enabled` tinyint(1) default 1,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -28,14 +28,16 @@ VALUES
 
 DROP TABLE IF EXISTS `authorities`;
 CREATE TABLE `authorities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `authority` varchar(50) NOT NULL,
+  primary key(`id`),
   UNIQUE KEY `authorities_idx_1` (`username`,`authority`),
   CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO `authorities` 
+INSERT INTO `authorities`(username, authority)
 VALUES 
 ('vineet','ROLE_STUDENT'),
 ('tanya','ROLE_STUDENT');
