@@ -16,11 +16,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 	
-	/*@Override
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().permitAll();
+		http.authorizeRequests().anyRequest().authenticated()
+			.and()
+			.formLogin().permitAll()
+			.and()
+			.logout().permitAll();
 		
-	}*/
+	}
 	
 
 	@Override
